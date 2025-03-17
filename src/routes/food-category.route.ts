@@ -6,11 +6,11 @@ import {
   updateFoodCategory,
 } from "../controllers/food-category.controller";
 
-const route = Router();
-route
+const categoryRoute = Router();
+categoryRoute
   .post("/", createFoodCategory)
   .get("/", getFoodCategory)
   .put("/", updateFoodCategory)
   .delete("/", deleteFoodCategory);
 
-export default route;
+export default categoryRoute;
