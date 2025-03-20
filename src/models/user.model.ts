@@ -1,6 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-
-type UserSchameType = {
+type userSchemaType = {
   email: string;
   password: string;
   phoneNumber: string;
@@ -9,16 +8,17 @@ type UserSchameType = {
   orderedFoods: string[];
 };
 
-const UserSchema: Schema = new Schema(
+const userSchema: Schema = new Schema(
   {
     email: { type: String, required: true },
     password: { type: String, required: true },
     phoneNumber: { type: String, default: "" },
     address: { type: String, default: "" },
-    role: ["USER", "ADMIN"],
-    orderedFoods: { type: Schema.ObjectId, ref: "FoodsOrder" },
+    role: { type: ["USER", "ADMIN"], default: "USER" },
+    orderedFoods: { type: [Schema.ObjectId], ref: "FoodsOrder" },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
-
-export default mongoose.model<UserSchameType>("user", UserSchema);
+export default mongoose.model<userSchemaType>("user", userSchema);
