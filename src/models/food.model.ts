@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-type FoodSchemaType = {
+type FoodCategorySchemaType = {
   categoryName: string;
 };
 
@@ -19,4 +19,4 @@ const FoodSchema: Schema = new Schema(
   { timestamps: true }
 );
 
-export default mongoose.model<FoodSchemaType>("Food", FoodSchema);
+export default mongoose.model<FoodCategorySchemaType>("Food", FoodSchema);
